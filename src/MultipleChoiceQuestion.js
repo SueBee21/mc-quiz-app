@@ -1,4 +1,4 @@
-export default function MultipleChoiceQuestion({ question }){
+export default function MultipleChoiceQuestion({ question, respond }){
   const {prompt, id, isAnswered, isCorrect, options} = question
   return (
     <div className="MultipleChoice">
@@ -7,7 +7,7 @@ export default function MultipleChoiceQuestion({ question }){
         {options.map(option => (
           <li key={`${id}-${option}`}>
             <button
-              onClick={() => {}}
+              onClick={(event) => respond(id, event.target.textContent)}
             >{option}</button>
           </li>
         ))}
